@@ -3,7 +3,6 @@ import { UserModel } from '../../db/models/index.js'
 export const signup = async (req, res) => {
   const { name, email, password, role } = req.body
 
-  // make sure the email does not exist before
   if (typeof email === 'string') {
     const emailExists = await UserModel.findOne({ where: { email } })
     if (emailExists) {

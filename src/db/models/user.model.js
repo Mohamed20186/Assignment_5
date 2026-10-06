@@ -14,7 +14,7 @@ export const UserModel = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
-      validate: emailValidation, // built-in validation (isEmail)
+      validate: emailValidation, 
     },
     password: { type: DataTypes.STRING },
     role: {

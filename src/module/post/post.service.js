@@ -24,7 +24,6 @@ export const deletePost = async (req, res) => {
     return res.status(403).json({ message: 'You are not authorized to delete this post.' })
   }
 
-  // the Post model is paranoid, so this is a soft delete (fills deletedAt)
   await post.destroy()
 
   return res.status(200).json({ message: 'Post deleted.' })
