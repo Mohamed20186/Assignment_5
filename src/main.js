@@ -23,13 +23,8 @@ const bootstrap = async () => {
   app.use('/posts', postRouter)
   app.use('/comments', commentRouter)
 
-  app.use((req, res) => {
-    res.status(404).json({ message: `Route ${req.method} ${req.originalUrl} not found` })
-  })
-
   
   app.use((error, req, res, next) => {
-    // UniqueConstraintError extends ValidationError, so it has to be checked first
     if (error instanceof UniqueConstraintError) {
       return res.status(409).json({ message: 'Email already exists.' })
     }
