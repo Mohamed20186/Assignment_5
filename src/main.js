@@ -22,7 +22,6 @@ const bootstrap = async () => {
   app.use(['/users', '/user'], userRouter)
   app.use('/posts', postRouter)
   app.use('/comments', commentRouter)
-
   
   app.use((error, req, res, next) => {
     if (error instanceof UniqueConstraintError) {
