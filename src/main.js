@@ -39,7 +39,6 @@ const bootstrap = async () => {
         errors: error.errors.map((item) => item.message),
       })
     }
-    // bulkCreate({ validate: true }) throws one AggregateError that wraps the ValidationError of every bad row
     if (error instanceof SequelizeAggregateError) {
       return res.status(400).json({
         message: 'Validation error',
